@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Routes from "./components/Routes";
-import { UidContext } from "./components/AppContext";
+import { UidContext } from "./components/Contexts/AppContext";
 import axios from "axios";
+import ThemeContextProvider from "./components/Contexts/ThemeContext";
+import BtnToggle from "./components/Buttons/BtnToggle";
 
 const App = () => {
   const [uid, setUid] = useState(null);
@@ -20,9 +22,12 @@ const App = () => {
   }, [uid]);
 
   return (
-    <UidContext.Provider value={uid}>
-      <Routes />
-    </UidContext.Provider>
+    <ThemeContextProvider>
+      <UidContext.Provider value={uid}>
+        <BtnToggle />
+        <Routes />
+      </UidContext.Provider>
+    </ThemeContextProvider>
   );
 };
 

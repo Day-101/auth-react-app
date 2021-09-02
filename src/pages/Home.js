@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { UidContext } from '../components/AppContext';
+import { UidContext } from '../components/Contexts/AppContext';
 
 const Home = () => {
   const uid = useContext(UidContext);
