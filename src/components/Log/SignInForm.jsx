@@ -1,9 +1,16 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 
 const SignInForm = () => {
+  const history = useHistory();
+  const [formSubmit, setFormSubmit] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const redirectToHome = () => {
+    history.replace("/");
+  };
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -25,7 +32,10 @@ const SignInForm = () => {
           emailError.innerHTML = res.data.errors.email;
           passwordError.innerHTML = res.data.errors.password;
         } else {
-          window.location = "/";
+          setFormSubmit(true);
+          setTimeout(function () {
+            redirectToHome();
+          }, 2000)
         }
       })
       .catch((err) => {
@@ -34,27 +44,36 @@ const SignInForm = () => {
   };
 
   return (
-    <form action="" onSubmit={handleLogin} id="sign-up-form">
-      <label htmlFor="email">Email</label>
-      <input
-        type="text"
-        name="email"
-        id="email"
-        onChange={(e) => setEmail(e.target.value)}
-        value={email}
-      />
-      <div className="email error"></div>
-      <label htmlFor="password">Mot de passe</label>
-      <input
-        type="password"
-        name="password"
-        id="password"
-        onChange={(e) => setPassword(e.target.value)}
-        value={password}
-      />
-      <div className="password error"></div>
-      <input type="submit" value="Se connecter" />
-    </form>
+    <>
+    {formSubmit ? (
+      <>
+        <h1>Connexion réussie</h1>
+        <p>Vous allez être redirigé vers la page d'accueil</p>
+      </>
+    ) : (
+      <form action="" onSubmit={handleLogin} id="sign-up-form">
+        <label htmlFor="email">Email</label>
+        <input
+          type="text"
+          name="email"
+          id="email"
+          onChange={(e) => setEmail(e.target.value)}
+          value={email}
+        />
+        <div className="email error"></div>
+        <label htmlFor="password">Mot de passe</label>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          onChange={(e) => setPassword(e.target.value)}
+          value={password}
+        />
+        <div className="password error"></div>
+        <input type="submit" value="Se connecter" />
+      </form>
+    )}
+    </>
   );
 };
 
