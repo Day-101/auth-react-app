@@ -8,16 +8,19 @@ import BtnToggle from "./components/Buttons/BtnToggle";
 const App = () => {
   const [uid, setUid] = useState(null);
 
-  useEffect(() => {
-    const fetchToken = async () => {
-      await axios({
-        method: "get",
-        url: `${process.env.REACT_APP_API_URL}jwtid`,
-        withCredentials: true,
+  const fetchToken = async () => {
+    await axios({
+      method: "get",
+      url: `${process.env.REACT_APP_API_URL}jwtid`,
+      withCredentials: true,
+    })
+      .then((res) => {
+        setUid(res.data);
       })
-        .then((res) => setUid(res.data))
-        .catch((err) => console.log("No token"));
-    };
+      .catch((err) => console.log("No token"));
+  };
+
+  useEffect(() => {
     fetchToken();
   }, [uid]);
 
