@@ -1,15 +1,13 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
 import axios from "axios";
 
 const SignInForm = () => {
-  const history = useHistory();
   const [formSubmit, setFormSubmit] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const redirectToHome = () => {
-    history.replace("/");
+    window.location = "/";
   };
 
   const handleLogin = (e) => {
