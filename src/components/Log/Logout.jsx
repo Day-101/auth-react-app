@@ -25,7 +25,7 @@ const Logout = () => {
   return (
     <header>
       <div className="container-logout" onClick={logout}>
-        <BtnLogout classes="btn-success" content="Se déconnecter" />
+        <BtnLogout classes="btn-outline" content="Se déconnecter" />
       </div>
     </header>
   );
