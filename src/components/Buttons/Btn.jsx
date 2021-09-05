@@ -1,19 +1,14 @@
 import React from "react";
-import { useHistory } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 
-const Btn = () => {
+const Btn = ({classes,url, content}) => {
   const history = useHistory();
-  
-  const handleUsers = () => {
-    console.log("rediction");
-    history.replace("/users");
+
+  const handleClick = () => {
+    history.replace(url);
   };
 
-  return (
-    <div onClick={handleUsers}>
-      <li>Voir la liste des utilisateurs</li>
-    </div>
-  );
+  return <button className={`btn ${classes}`} onClick={handleClick}>{content}</button>;
 };
 
 export default Btn;

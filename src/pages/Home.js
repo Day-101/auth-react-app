@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import { useHistory } from "react-router-dom";
 import { UidContext } from "../components/Contexts/AppContext";
 import Logout from "../components/Log/Logout";
 import Btn from "../components/Buttons/Btn";
@@ -7,11 +6,6 @@ import Btn from "../components/Buttons/Btn";
 
 const Home = () => {
   const uid = useContext(UidContext);
-  const history = useHistory();
-
-  const redirectToLogin = () => {
-    history.replace("/login");
-  };
 
   return (
     <div className="container welcome">
@@ -19,7 +13,8 @@ const Home = () => {
       {uid ? (
         <>
           <Logout />
-          <Btn />
+          <Btn classes="btn-success" url="/users" content="test" />
+          {/* <button className="btn btn-success" onClick={redirectToLogin}>Se connecter</button> */}
         </>
       ) : (
         <>
@@ -31,8 +26,8 @@ const Home = () => {
           <h2 className="txt-center">
             Connectez vous pour accéder à la liste des utilisateurs !
           </h2>
-          <button className="btn btn-success" onClick={redirectToLogin}>Se connecter</button>
-          <button className="btn btn-outline" onClick={redirectToLogin}>Créer un compte</button>
+          <Btn classes="btn-success" url="/login" content="Se connecter" />
+          <Btn classes="btn-outline" url="/register" content="Créer un compte" />
         </>
       )}
     </div>
