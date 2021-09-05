@@ -3,6 +3,7 @@ import Routes from "./components/Routes";
 import { UidContext } from "./components/Contexts/AppContext";
 import axios from "axios";
 import ThemeContextProvider from "./components/Contexts/ThemeContext";
+import Logout from "./components/Log/Logout";
 import Footer from "./components/Footer/Footer";
 
 const App = () => {
@@ -27,6 +28,12 @@ const App = () => {
   return (
     <ThemeContextProvider>
       <UidContext.Provider value={uid}>
+        {uid ? (
+          <Logout />
+        ) : (
+          <>
+          </>
+        )}
         <Routes />
         <Footer />
       </UidContext.Provider>
