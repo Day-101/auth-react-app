@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <footer>
       <div>Réalisé par Day SY</div>
-      <div>Powered by NodeJS, ReactJS...</div>
+      <div>Powered by NodeJS and ReactJS</div>
     </footer>
   );
 };
