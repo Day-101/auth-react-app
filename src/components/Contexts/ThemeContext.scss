@@ -5,6 +5,8 @@
 $white: #eff8fd;
 $black: #1b1e21;
 $light-grey: #eff2f5;
+$success:#00c09f;
+$secondary:#0DD9B7;
 #root {
   height: 100vh;
   display: flex;
@@ -43,6 +45,7 @@ p{
 }
 
 .btn-success {
-  color: $white;
-  background: #00c09f;
+  color: $white !important;
+  background: $success !important;
+  border: none !important;
 }

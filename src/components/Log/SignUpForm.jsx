@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 
 const SignUpForm = () => {
@@ -50,7 +52,7 @@ const SignUpForm = () => {
             setFormSubmit(true);
             setTimeout(function () {
               redirectToHome();
-            }, 2000)
+            }, 3000);
           }
         })
         .catch((err) => console.log(err));
@@ -60,49 +62,56 @@ const SignUpForm = () => {
   return (
     <>
       {formSubmit ? (
-        <>
+        <div className="log-confirm">
+          <FontAwesomeIcon icon={faCheckCircle} />
           <h1>Votre compte a bien été créé.</h1>
           <p>Vous allez être redirigé vers la page de connexion.</p>
-        </>
+        </div>
       ) : (
-        <form action="" onSubmit={handleRegister} id="sign-up-form">
-          <label htmlFor="email">Email</label>
-          <input
-            type="text"
-            name="email"
-            id="email"
-            onChange={(e) => setEmail(e.target.value)}
-            value={email}
-          />
-          <div className="email error"></div>
-          <label htmlFor="password">Mot de passe</label>
-          <input
-            type="password"
-            name="password"
-            id="password"
-            onChange={(e) => setPassword(e.target.value)}
-            value={password}
-          />
-          <div className="password error"></div>
-          <label htmlFor="password-conf">Confirmer le mot de passe</label>
-          <input
-            type="password"
-            name="password"
-            id="password-conf"
-            onChange={(e) => setControlPassword(e.target.value)}
-            value={controlPassword}
-          />
-          <div className="password-confirm error"></div>
-          <input type="checkbox" id="terms" />
-          <label htmlFor="terms">
-            J'accepte les{" "}
-            <a href="/" target="_blank" rel="noopener noreferrer">
-              conditions générales
-            </a>
-          </label>
-          <div className="terms error"></div>
-          <input type="submit" value="Créer un compte" />
-        </form>
+        <>
+          <h1>S'incrire</h1>
+          <form action="" onSubmit={handleRegister} id="sign-up-form">
+            <label htmlFor="email">Email</label>
+            <input
+              type="text"
+              name="email"
+              id="email"
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
+            />
+            <div className="email error"></div>
+            <label htmlFor="password">Mot de passe</label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              onChange={(e) => setPassword(e.target.value)}
+              value={password}
+            />
+            <div className="password error"></div>
+            <label htmlFor="password-conf">Confirmer le mot de passe</label>
+            <input
+              type="password"
+              name="password"
+              id="password-conf"
+              onChange={(e) => setControlPassword(e.target.value)}
+              value={controlPassword}
+            />
+            <div className="password-confirm error"></div>
+            <div className="terms-box">
+              <input type="checkbox" id="terms" />
+              <label htmlFor="terms">
+                J'accepte les{" "}
+                <a href="/" target="_blank" rel="noopener noreferrer">
+                  conditions générales
+                </a>
+                .
+              </label>
+              <div className="terms error"></div>
+            </div>
+            <input className="btn btn-success" type="submit" value="Créer un compte" />
+          </form>
+        </>
       )}
     </>
   );

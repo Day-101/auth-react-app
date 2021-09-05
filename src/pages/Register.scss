@@ -1,0 +1,48 @@
+.container {
+  #sign-up-form {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    align-self: center;
+  }
+  input{
+    background: none;
+    border: 1px solid $white;
+    border-radius: 3px;
+    color: $white;
+    margin-top: .5em;
+    padding: .8em;
+  }
+  label{
+    margin-top: 1em;
+  }
+  .terms-box{
+    margin: 1em 0;
+    a{
+      color:$secondary;
+    }
+  }
+  .error{
+    color: red;
+    font-size: .8em;
+  }
+  .log-confirm{
+    text-align: center;
+
+    svg:not(:root).svg-inline--fa{
+      overflow: visible;
+      font-size: 3em;
+      margin: .3em 0;
+      color: $success;
+    }
+  }
+}
+.register {
+  .content{
+    border: 1px solid #fff;
+    border-radius: 3px;
+    margin: auto;
+    padding: 1em 2em;
+    width: fit-content;
+  }
+}
