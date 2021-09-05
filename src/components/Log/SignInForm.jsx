@@ -1,16 +1,14 @@
 import React, { useState } from "react";
-// import { useHistory } from "react-router-dom";
 import axios from "axios";
 
 const SignInForm = () => {
-  // const history = useHistory();
   const [formSubmit, setFormSubmit] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  // const redirectToHome = () => {
-  //   history.replace("/");
-  // };
+  const redirectToHome = () => {
+    window.location = "/";
+  };
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -27,15 +25,15 @@ const SignInForm = () => {
       },
     })
       .then((res) => {
+        console.log(res);
         if (res.data.errors) {
           emailError.innerHTML = res.data.errors.email;
           passwordError.innerHTML = res.data.errors.password;
         } else {
-          console.log(res);
           setFormSubmit(true);
-          // setTimeout(function () {
-          //   redirectToHome();
-          // }, 2000);
+          setTimeout(function () {
+            redirectToHome();
+          }, 2000);
         }
       })
       .catch((err) => {

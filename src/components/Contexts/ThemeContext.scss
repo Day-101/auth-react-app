@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+$white: #eff8fd;
+$black: #1b1e21;
+$light-grey: #eff2f5;
+#root {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: $light-grey;
+  color: $black;
+  font-family: "Noto Sans JP", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6{
+  margin-bottom: 0.3em;
+}
+p{
+  margin-bottom: 1.5em;
+}
+
+.txt-center {
+  text-align: center;
+}
+.btn {
+  cursor: pointer;
+  text-align: center;
+  letter-spacing: -0.022em;
+  border: none;
+  border-radius: 3px;
+  padding: 8px 16px;
+  font-size: 1.2em;
+  margin: 0.5em 0;
+}
+
+.btn-outline {
+  background: none;
+  border: 2px solid $white;
+  color: $white;
+  padding: 6px 14px;
+}
+
+.btn-success {
+  color: $white;
+  background: #00c09f;
+}
