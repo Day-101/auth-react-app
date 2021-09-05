@@ -3,7 +3,7 @@ import Routes from "./components/Routes";
 import { UidContext } from "./components/Contexts/AppContext";
 import axios from "axios";
 import ThemeContextProvider from "./components/Contexts/ThemeContext";
-import BtnToggle from "./components/Buttons/BtnToggle";
+import Footer from "./components/Footer/Footer";
 
 const App = () => {
   const [uid, setUid] = useState(null);
@@ -27,8 +27,8 @@ const App = () => {
   return (
     <ThemeContextProvider>
       <UidContext.Provider value={uid}>
-        <BtnToggle />
         <Routes />
+        <Footer />
       </UidContext.Provider>
     </ThemeContextProvider>
   );

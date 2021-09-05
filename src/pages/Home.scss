@@ -1,0 +1,26 @@
+.container {
+  margin: 1em;
+  padding: 1em;
+}
+.welcome {
+  background: linear-gradient(90deg, #2f2b4a, #424354);
+  color: #eff8fe;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: center;
+  margin: 0;
+  text-align: center;
+
+  h2 {
+    font-size: 1.5em;
+    margin-bottom: 1.2em;
+  }
+
+  @media only screen and (min-width: 600px)  {
+    .btn{
+      width: 500px;
+      margin: .5em auto;
+    }
+  }
+}
