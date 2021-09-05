@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 
 const SignInForm = () => {
@@ -33,7 +35,7 @@ const SignInForm = () => {
           setFormSubmit(true);
           setTimeout(function () {
             redirectToHome();
-          }, 2000)
+          }, 3000);
         }
       })
       .catch((err) => {
@@ -43,34 +45,42 @@ const SignInForm = () => {
 
   return (
     <>
-    {formSubmit ? (
-      <>
-        <h1>Connexion réussie</h1>
-        <p>Vous allez être redirigé vers la page d'accueil</p>
-      </>
-    ) : (
-      <form action="" onSubmit={handleLogin} id="sign-up-form">
-        <label htmlFor="email">Email</label>
-        <input
-          type="text"
-          name="email"
-          id="email"
-          onChange={(e) => setEmail(e.target.value)}
-          value={email}
-        />
-        <div className="email error"></div>
-        <label htmlFor="password">Mot de passe</label>
-        <input
-          type="password"
-          name="password"
-          id="password"
-          onChange={(e) => setPassword(e.target.value)}
-          value={password}
-        />
-        <div className="password error"></div>
-        <input type="submit" value="Se connecter" />
-      </form>
-    )}
+      {formSubmit ? (
+        <div className="log-confirm">
+          <FontAwesomeIcon icon={faCheckCircle} />
+          <h1>Connexion réussie</h1>
+          <p>Vous allez être redirigé vers la page d'accueil</p>
+        </div>
+      ) : (
+        <>
+          <h1>Se connecter</h1>
+          <form action="" onSubmit={handleLogin} id="sign-up-form">
+            <label htmlFor="email">Email</label>
+            <input
+              type="text"
+              name="email"
+              id="email"
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
+            />
+            <div className="email error"></div>
+            <label htmlFor="password">Mot de passe</label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              onChange={(e) => setPassword(e.target.value)}
+              value={password}
+            />
+            <div className="password error"></div>
+            <input
+              className="btn btn-success"
+              type="submit"
+              value="Se connecter"
+            />
+          </form>
+        </>
+      )}
     </>
   );
 };
