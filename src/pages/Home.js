@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { UidContext } from "../components/Contexts/AppContext";
-import Logout from "../components/Log/Logout";
 import Btn from "../components/Buttons/Btn";
 // import BtnToggle from "./components/Buttons/BtnToggle";
 
@@ -12,8 +11,7 @@ const Home = () => {
       {/* <BtnToggle /> */}
       {uid ? (
         <>
-          <Logout />
-          <Btn classes="btn-success" url="/users" content="test" />
+          <Btn classes="btn-success" url="/users" content="Voir la liste des utilisateurs" />
           {/* <button className="btn btn-success" onClick={redirectToLogin}>Se connecter</button> */}
         </>
       ) : (
