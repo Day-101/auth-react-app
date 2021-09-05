@@ -1,9 +1,14 @@
 header{
+  background: $black;
   text-align: right;
   .container-logout{
+    button{
+      margin-right: 1em;
+    }
     div{
       width: fit-content;
       height: fit-content;
+
     }
   }
 }
