@@ -1,8 +1,5 @@
 .container {
-  margin: 1em;
   padding: 1em;
-}
-.welcome {
   background: linear-gradient(90deg, #2f2b4a, #424354);
   color: #eff8fe;
   display: flex;
@@ -10,6 +7,8 @@
   flex-grow: 1;
   justify-content: center;
   margin: 0;
+}
+.welcome {
   text-align: center;
 
   h2 {
