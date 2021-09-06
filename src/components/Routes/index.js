@@ -20,7 +20,11 @@ const Routes = () => {
         <Route path="/" exact component={Home} />
         <Route path="/register" exact component={Register} />
         <Route path="/login" exact component={Login} />
-        {uid ? <Route path="/users" exact component={Users} /> : <></>}
+        {uid ? (
+          <Route path="/users" exact component={Users} />
+          ) : (
+            <Route path="/users" exact component={Login} />
+          )}
         <Redirect to="/" />
       </Switch>
     </Router>
